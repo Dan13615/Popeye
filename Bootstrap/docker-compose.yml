@@ -1,0 +1,20 @@
+version: '3.8'
+
+services:
+  hello-word:
+    build: .
+    ports:
+      - "3000:8080"
+  db:
+    image: postgres:9.4
+    environment:
+      POSTGRES_USER: admin
+      POSTGRES_PASSWORD: popeye
+      POSTGRES_DB: mydb
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    ports:
+      - "5432:8080"
+  
+volumes:
+  pgdata:
